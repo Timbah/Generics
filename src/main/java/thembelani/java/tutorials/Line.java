@@ -6,13 +6,11 @@ import java.util.List;
 
 public class Line implements Mappable {
 
-    private String name;
     private IconType type;
     private List<double[]> location;
 
-    public Line(String name, IconType type, List<double[]> location) {
-        this.name = name;
-        this.type = type;
+    public Line(List<double[]> location) {
+        this.type = IconType.LINE;
         this.location = new ArrayList<>(location); // this is called defensive copy
     }
 
@@ -25,9 +23,17 @@ public class Line implements Mappable {
         return true;
     }
 
+    public IconType getType() {
+        return type;
+    }
+
+    public List<double[]> getLocation() {
+        return location;
+    }
+
     @Override
     public void render() {
-        System.out.print(name.toUpperCase() + " as " + type + " (");
+        System.out.print(type + " (");
 
         for (int i = 0; i < location.size(); i++) {
             double[] point = location.get(i);
