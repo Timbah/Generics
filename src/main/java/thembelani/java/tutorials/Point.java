@@ -11,10 +11,11 @@ public class Point implements Mappable {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.type = IconType.POINT;
     }
 
     @Override
     public void render() {
-        System.out.printf(name.toUpperCase() + " as " + type + " ([%f, %f])%n", this.latitude, this.longitude);
+        System.out.printf(name.toUpperCase() + " as " + this.type + " ([%f, %f])%n", this.latitude, this.longitude);
     }
 }
